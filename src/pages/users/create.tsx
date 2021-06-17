@@ -33,7 +33,7 @@ export default function CreateUser() {
                <Flex mt="8" justify="flex-end">
                     <HStack spacing="4">
                         <Button colorScheme="whiteAlpha">Cancelar</Button>
-                        <Button colorScheme="pink">Salvar</Button>
+                        <Button colorScheme="red">Salvar</Button>
                     </HStack>
                </Flex>
             </Box>
