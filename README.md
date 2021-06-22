@@ -1,1 +1,1 @@
-# Dash.go
+# Dash.Insight
