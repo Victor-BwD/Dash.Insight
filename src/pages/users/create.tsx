@@ -3,8 +3,27 @@ import Link from "next/link";
 import React from "react";
 import { Input } from "../../components/Form/Input";
 import { Header } from "../../components/Header";
-
+import { SubmitHandler, useForm } from 'react-hook-form'
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
 import { Sidebar } from "../../components/Sidebar";
+
+type CreateUserFormData = {
+    name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+  };
+  
+  const CreateUserFormSchema = yup.object().shape({
+    name: yup.string().required('Nome obrigatório'),
+    email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+    password: yup.string().required('Senha obrigatória').min(6, 'No mínimo 6 caracteres'),
+    password_confirmation: yup.string().oneOf([
+        null,
+        yup.ref('password')
+    ], 'As senhas precisam ser iguais'),
+  })
 
 export default function CreateUser() {
     return (
